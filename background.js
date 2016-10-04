@@ -145,6 +145,9 @@ var lastDimmedTabId = null;
 
 function handleNewPage(newTab, selectedTab, sendResponse) {
   // Every code path in this function should call sendResponse.
+  
+  console.log("Handling new page");
+  
   // Collect data.
   var junkDomain = lookupJunkDomain(newTab.url);
   var active = extensionActive();
@@ -161,8 +164,10 @@ function handleNewPage(newTab, selectedTab, sendResponse) {
 
   // Send response.
   if (!(junkDomain && active && shouldDim)) {
+    console.log("Pass domain");
     sendResponse({});  // do nothing
   } else {
+    console.log("We may need to dim, check");
     var tabIsActive = (newTab.id == selectedTab.id);
     sendResponse({dimmerAction: tabIsActive ? "create" : "create_suspended",
                   delay: getLocal('dimmerDelay'),
@@ -300,7 +305,7 @@ function initUserID() {
 
 function initExtension() {
   initUserID();
-  chrome.runTime.onMessage.addListener(newPageHandler);
+  chrome.runtime.onMessage.addListener(newPageHandler);
   chrome.tabs.onSelectionChanged.addListener(tabSelectionChangedHandler);
   chrome.windows.onFocusChanged.addListener(windowFocusChangedHandler);
   initIcon();
