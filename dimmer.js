@@ -181,7 +181,8 @@ function invoke_dimmer(action) {
 }
 
 // On initial load, check with the extension whether action needs to be taken.
-chrome.extension.sendRequest({}, function(response) {
+chrome.runtime.sendMessage({}, function(response) {
+  console.log(" Dimmer got callback from sendMessage ");
   if (response.redirectUrl) {
     window.location.href = response.redirectUrl;
   } else if (response.dimmerAction) {

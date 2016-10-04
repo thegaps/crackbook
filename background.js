@@ -229,6 +229,7 @@ function windowFocusChangedHandler(windowId) {
 
 // A wrapper function that also figures out the selected tab.
 function newPageHandler(request, sender, sendResponse) {
+  console.log(" Background got msg from dimmer ");
   chrome.tabs.getSelected(null, function(selectedTab) {
     handleNewPage(sender.tab, selectedTab, sendResponse);
   });
@@ -299,7 +300,7 @@ function initUserID() {
 
 function initExtension() {
   initUserID();
-  chrome.extension.onRequest.addListener(newPageHandler);
+  chrome.runTime.onMessage.addListener(newPageHandler);
   chrome.tabs.onSelectionChanged.addListener(tabSelectionChangedHandler);
   chrome.windows.onFocusChanged.addListener(windowFocusChangedHandler);
   initIcon();
