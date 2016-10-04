@@ -3,6 +3,9 @@ Crackbook
 
 See http://xkcd.com/862/
 
+This is a Firefox port of Crackbook. Some attempt is made to ensure this will
+continue to work in Chrome as well.
+
 Crackbook is a Chrome extension for discouraging use of attention-sucking
 websites such as Facebook or Reddit. The idea behind Crackbook is that delaying
 access to the website is more effective than straight blocking because you
@@ -23,6 +26,7 @@ https://chrome.google.com/extensions/detail/nbgjmohekjolcgemlolblankocjlgalf
 
 The source code is available under the MIT license (see the file LICENSE).
 It is hosted at http://github.com/gintas/crackbook (patches welcome!).
+
 
 Copyright (C) 2011 Gintautas Miliauskas <gintautas@miliauskas.lt>
 
