@@ -106,6 +106,7 @@ function getTodaysHits() {
 
 function lookupJunkDomain(url) {
   var junkDomains = getLocal('junkDomains');
+  console.log(url);
   var normalized_url = trimWWW(trimProtocol(url.trim()));
   for (var i = 0; i < junkDomains.length; i++) {
     if (normalized_url.indexOf(junkDomains[i]) == 0) {

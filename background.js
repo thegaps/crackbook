@@ -153,7 +153,7 @@ function handleNewPage(newTab, selectedTab, sendResponse) {
   var active = extensionActive();
   var shouldDim = shouldDimPage();
   if (!junkDomain && getLocal('checkActiveTab')) {
-    junkDomain = lookupJunkDomain(selectedTab.url);
+    junkDomain = lookupJunkDomain(selectedTab[0].url);
     // TODO: This works for "open in background tab", but not for "open in
     // foreground tab" or "open in new window". Cover these cases by checking
     // the last seen tab, not just the active tab, and whether the switch was
