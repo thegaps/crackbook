@@ -235,7 +235,7 @@ function windowFocusChangedHandler(windowId) {
 // A wrapper function that also figures out the selected tab.
 function newPageHandler(request, sender, sendResponse) {
   console.log(" Background got msg from dimmer ");
-  chrome.tabs.getSelected(null, function(selectedTab) {
+  chrome.tabs.query({active: true}, function(selectedTab) {
     handleNewPage(sender.tab, selectedTab, sendResponse);
   });
 }
